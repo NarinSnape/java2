@@ -56,7 +56,7 @@ public class TaskWork {
                 break;
         }
         //Результат операции.
-        System.out.printf(x + calc + y + " = %.2f", result);
+        System.out.printf(x + calc + y + " = %.4f", result);
         scanner.close();
     }
 
