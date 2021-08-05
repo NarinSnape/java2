@@ -12,7 +12,7 @@ public class Calculator {
         this.calc = calc;
     }
 
-    String Processing() {
+    public String Processing() {
         double result = 0;
         switch (calc) {
             case "+":
@@ -29,14 +29,17 @@ public class Calculator {
                     result = Division(x, y);
                 } else {
                     System.out.println("На 0 делить нельзя.");
-                    System.exit(0);
+                    break;
                 }
                 break;
             default:
                 System.out.println("А так я не умею.");
-                System.exit(0);
+                break;
         }
-        return "Результат: " + result;
+        if (result != 0) {
+            return  "Результат: " + result;
+        } else
+            return "";
     }
 
     //методы вычисления результата
