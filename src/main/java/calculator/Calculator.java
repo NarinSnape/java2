@@ -28,18 +28,13 @@ public class Calculator {
                 if (y != 0) {
                     result = Division(x, y);
                 } else {
-                    System.out.println("На 0 делить нельзя.");
-                    break;
+                    return "На 0 делить нельзя.";
                 }
                 break;
             default:
-                System.out.println("А так я не умею.");
-                break;
+                return "А так я не умею.";
         }
-        if (result != 0) {
             return  "Результат: " + result;
-        } else
-            return "";
     }
 
     //методы вычисления результата
