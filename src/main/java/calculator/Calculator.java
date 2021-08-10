@@ -2,52 +2,60 @@ package calculator;
 
 public class Calculator {
     // метод конструктора, параметрами которому передавать числа, символ (или код операции)
-    private double x;
-    private double y;
-    private String calc;
+    private final int x;
+    private final int y;
+    private final String calc;
 
-    public Calculator(double x, double y, String calc) {
+    public Calculator(int x, int y, String calc) {
         this.x = x;
         this.y = y;
         this.calc = calc;
     }
 
-    public String Processing() {
-        double result = 0;
+    public void Processing() {
+        int result;
         switch (calc) {
             case "+":
                 result = Addition(x, y);
+                System.out.println("Результат: " + result);
                 break;
             case "-":
-                result = Substraction(x, y);
+                result = Subtraction(x, y);
+                System.out.println("Результат: " + result);
                 break;
             case "*":
                 result = Multiplication(x, y);
+                System.out.println("Результат: " + result);
                 break;
-            case "/":
-                if (y != 0) {
+            case "/": {
+                try {
                     result = Division(x, y);
-                } else {
-                    return "На 0 делить нельзя.";
+                    System.out.println("Результат: " + result);
+
+                } catch (ArithmeticException e) {
+                    System.out.println("На 0 делить нельзя.");
                 }
                 break;
+            }
             default:
-                return "А так я не умею.";
+                System.out.println("Я так не умею.");
         }
-            return  "Результат: " + result;
     }
 
     //методы вычисления результата
-    private double Addition(double x, double y) {
+    private int Addition(int x, int y) {
         return x + y;
     }
-    private double Division(double x, double y) {
+
+    private int Division(int x, int y) {
         return x / y;
     }
-    private double Multiplication(double x, double y) {
+
+    private int Multiplication(int x, int y) {
         return x * y;
     }
-    private double Substraction(double x, double y) {
+
+    private int Subtraction(int x, int y) {
         return x - y;
     }
 }
