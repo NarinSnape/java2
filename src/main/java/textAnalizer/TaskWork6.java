@@ -29,7 +29,8 @@ public class TaskWork6 {
         //Collections.sort(words);
         words.sort(Comparator.naturalOrder());
                 //Проблема! сортировка почему-то добавляет в конец первое слово списка
-                //и сбивается при попадании в Map
+                //костыль:
+        words.remove(words.size()-1);
         //Посчитать сколько раз каждое слово встречается в файле.
         Map<String, Integer> map = countWords(words);
         //Вывести статистику на консоль
@@ -51,7 +52,7 @@ public class TaskWork6 {
     }
 
     public static Map<String, Integer> countWords(ArrayList<String> list) {
-        HashMap<String, Integer> result = new HashMap<>();
+        TreeMap<String, Integer> result = new TreeMap<>();
         for (String s : list) {
             if (!result.containsKey(s)) {
                 result.put(s, 1);
