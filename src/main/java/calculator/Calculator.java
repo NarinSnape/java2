@@ -2,18 +2,18 @@ package calculator;
 
 public class Calculator {
     // метод конструктора, параметрами которому передавать числа, символ (или код операции)
-    private final int x;
-    private final int y;
+    private final double x;
+    private final double y;
     private final String calc;
 
-    public Calculator(int x, int y, String calc) {
+    public Calculator(double x, double y, String calc) {
         this.x = x;
         this.y = y;
         this.calc = calc;
     }
 
     public void Processing() {
-        int result;
+        double result;
         switch (calc) {
             case "+":
                 result = Addition(x, y);
@@ -43,19 +43,19 @@ public class Calculator {
     }
 
     //методы вычисления результата
-    private int Addition(int x, int y) {
+    private double Addition(double x, double y) {
         return x + y;
     }
 
-    private int Division(int x, int y) {
+    private double Division(double x, double y) {
         return x / y;
     }
 
-    private int Multiplication(int x, int y) {
+    private double Multiplication(double x, double y) {
         return x * y;
     }
 
-    private int Subtraction(int x, int y) {
+    private double Subtraction(double x, double y) {
         return x - y;
     }
 }
