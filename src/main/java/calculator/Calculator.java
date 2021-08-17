@@ -12,35 +12,31 @@ public class Calculator {
         this.calc = calc;
     }
 
-    public double Processing() {
+    public String Processing() throws DoubleArithmeticException {
         double result = 0;
         switch (calc) {
             case "+":
                 result = Addition(x, y);
-                System.out.println("Результат: " + result);
                 break;
             case "-":
                 result = Subtraction(x, y);
-                System.out.println("Результат: " + result);
                 break;
             case "*":
                 result = Multiplication(x, y);
-                System.out.println("Результат: " + result);
                 break;
             case "/": {
-                try {
+                if(y == 0) {
+                    throw new DoubleArithmeticException("На 0 делить нельзя.");
+                }
+                else {
                     result = Division(x, y);
-                    System.out.println("Результат: " + result);
-
-                } catch (ArithmeticException e) {
-                    System.out.println("На 0 делить нельзя.");
                 }
                 break;
             }
             default:
-                System.out.println("Я так не умею.");
+                return "Я так не умею.";
         }
-        return result;
+        return "Результат: " + result;
     }
 
     //методы вычисления результата

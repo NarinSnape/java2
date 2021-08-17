@@ -1,6 +1,5 @@
 package calculator;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Program {
@@ -9,16 +8,16 @@ public class Program {
         Scanner scanner = new Scanner(System.in);
         double x = 0, y = 0;
         String calc = "";
+        x = scanner.nextDouble();
+        y = scanner.nextDouble();
+        calc = scanner.next();
+        scanner.close();
         try {
-            x = scanner.nextDouble();
-            y = scanner.nextDouble();
-            calc = scanner.next();
-        } catch (InputMismatchException ime) {
-            System.out.println("Неверные данные, попробуйте снова.");
+            Calculator calculator = new Calculator(x, y, calc);
+            calculator.Processing();
+        } catch (DoubleArithmeticException ex) {
+            System.out.println(ex.getMessage());
         }
 
-        scanner.close();
-        Calculator calculator = new Calculator(x, y, calc);
-        calculator.Processing();
     }
 }
