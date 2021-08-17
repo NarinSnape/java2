@@ -2,7 +2,6 @@ package textAnalizer;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
@@ -17,17 +16,15 @@ public class TaskWork6 {
         Path path = Paths.get("src/main/java/textAnalizer/file.txt");
         File file = new File(String.valueOf(path));
         //проверки на существование файла и его содержание
-        if(file.exists() && file.length() > 0) {
+        if (file.exists() && file.length() > 0) {
             //Прочитать слова из файла.
-            List<String> lines = Files.readAllLines(path, UTF_8);
+            Scanner scanner = new Scanner(file);
             ArrayList<String> words = new ArrayList<>();
-            for (String line : lines) {
-                String[] word = line.split(" ");
-                for (String s : word)
-                    if (!s.equals("")) {
-                        words.add(s);
-                    }
+            while (scanner.hasNext()) {
+                words.add(scanner.next());
             }
+            scanner.close();
+
 
             //Отсортировать в алфавитном порядке.
             Collections.sort(words);
@@ -55,11 +52,11 @@ public class TaskWork6 {
     public static Map<String, Integer> countWords(ArrayList<String> list) {
         TreeMap<String, Integer> result = new TreeMap<>();
         for (String s : list) {
-            if (!result.containsKey(s)) {
-                result.put(s, 1);
-            }
             if (result.containsKey(s)) {
                 result.put(s, result.get(s) + 1);
+            }
+            if (!result.containsKey(s)) {
+                result.put(s, 1);
             }
         }
         return result;

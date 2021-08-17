@@ -12,8 +12,8 @@ public class Calculator {
         this.calc = calc;
     }
 
-    public void Processing() {
-        double result;
+    public double Processing() {
+        double result = 0;
         switch (calc) {
             case "+":
                 result = Addition(x, y);
@@ -40,6 +40,7 @@ public class Calculator {
             default:
                 System.out.println("Я так не умею.");
         }
+        return result;
     }
 
     //методы вычисления результата

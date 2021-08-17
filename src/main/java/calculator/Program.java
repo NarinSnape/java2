@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-        System.out.println("Введите поочередно два целых числа и знак операции (‘+’, ‘-’, ‘*’ или ‘/’): ");
+        System.out.println("Введите поочередно два числа и знак операции (‘+’, ‘-’, ‘*’ или ‘/’): ");
         Scanner scanner = new Scanner(System.in);
         double x = 0, y = 0;
         String calc = "";
